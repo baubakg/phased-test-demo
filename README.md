@@ -8,6 +8,8 @@ Word of note: _This is a simple demo example, and is not a real web shop. The ex
 ## Basic scenario
 We assume that we have a simple web shop. The user will find a product, put it in their basket, and then checkout. Finally we make sure that the paid price is the same as what we browsed for.
 
+The test scenario is declared in the class `com.my.web.shop.TestShoppingBasket`.
+
 ## Demo Executions
 In this chapter we will describe the use cases:
 
