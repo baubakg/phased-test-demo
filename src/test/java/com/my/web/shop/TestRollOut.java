@@ -21,11 +21,23 @@ import org.testng.annotations.Test;
 @PhasedTest(canShuffle = true)
 @Test
 public class TestRollOut {
-
-    @BeforeSuite
-    @BeforePhase(appliesToPhases = { Phases.PRODUCER})
-    public void resetDB() {
+    /**
+     * We load the prices onto the system
+     */
+    @BeforeTest
+    @BeforePhase
+    public void loadDB() {
         ShoppingBasket.loadSystem();
+    }
+
+    /**
+     * Reset the system for normal tests
+     */
+    @BeforeSuite
+    @BeforePhase(appliesToPhases = { Phases.NON_PHASED})
+    public void resetDB() {
+
+        Provision.resetSystem();
     }
 
 }

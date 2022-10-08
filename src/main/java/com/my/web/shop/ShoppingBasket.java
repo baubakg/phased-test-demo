@@ -40,9 +40,18 @@ public class ShoppingBasket {
         return p;
     }
 
+    /**
+     * Add item to shopping basket
+     * @param val
+     */
     public static void addToShoppingBasket(String val) {
     }
 
+    /**
+     * The user checks out and pays for the product
+     * @param val
+     * @return
+     */
     public static int payForProduct(String val) {
         Product p = new Product();
         p.name = val;
