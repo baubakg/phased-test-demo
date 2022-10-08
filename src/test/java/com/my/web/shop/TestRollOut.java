@@ -13,19 +13,19 @@ package com.my.web.shop;
 
 import com.adobe.campaign.tests.integro.phased.BeforePhase;
 import com.adobe.campaign.tests.integro.phased.PhasedTest;
-import com.adobe.campaign.tests.integro.phased.PhasedTestManager;
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
+import com.adobe.campaign.tests.integro.phased.Phases;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 @PhasedTest(canShuffle = true)
 @Test
 public class TestRollOut {
+
     @BeforeSuite
-    @BeforePhase
-    public void loadDB() {
-        ShoppingBasket.reset();
+    @BeforePhase(appliesToPhases = { Phases.PRODUCER})
+    public void resetDB() {
+        ShoppingBasket.loadSystem();
     }
 
 }

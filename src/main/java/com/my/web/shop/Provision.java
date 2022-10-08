@@ -11,13 +11,15 @@
  */
 package com.my.web.shop;
 
-import com.adobe.campaign.tests.integro.phased.PhasedTestException;
-
-import java.io.*;
 import java.util.Properties;
 
 public class Provision {
     public static void main(String args[]) {
+        resetSystem();
+
+    }
+
+    protected static void resetSystem() {
         Properties importedProperties = new Properties();
 
         importedProperties.put("phased-shuffledGroup_3_0", "76");
@@ -25,16 +27,7 @@ public class Provision {
         importedProperties.put("phased-shuffledGroup_1_2", "47");
         importedProperties.put("phased-shuffledGroup_0_3", "93");
 
-        File priceFile = new File("products.properties");
-
-        try (FileWriter fw = new FileWriter(priceFile)) {
-
-            importedProperties.store(fw, null);
-
-        } catch (IOException e) {
-
-            throw new PhasedTestException("Error when creating file " + priceFile.getPath() + ".", e);
-        }
-
+        UpdateDB.updateSystem(importedProperties);
     }
+
 }

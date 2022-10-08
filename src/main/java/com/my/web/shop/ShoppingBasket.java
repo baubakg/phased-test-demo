@@ -22,21 +22,11 @@ import java.util.Properties;
 public class ShoppingBasket {
     private static Properties importedProperties = new Properties();
 
-    public static void reset() {
-        File priceFile = new File("products.properties");
-
-        if (!priceFile.exists()) {
-            System.out.println("Price file NOT FOUND!!!!");
-        }
-
-        try (InputStream input = new FileInputStream(priceFile)) {
-            importedProperties = new Properties();
-            // load a properties file
-            importedProperties.load(input);
-        } catch (IOException e) {
-
-            throw new PhasedTestException("Error when loading file " + priceFile.getPath() + ".", e);
-        }
+    /**
+     * Simply loads the active price database
+     */
+    public static void loadSystem() {
+        importedProperties = UpdateDB.loadSystem();
     }
     public static Product searchForProduct(String val) {
         Product p = new Product();

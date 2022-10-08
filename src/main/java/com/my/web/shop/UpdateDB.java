@@ -18,8 +18,16 @@ import java.util.Properties;
 
 public class UpdateDB {
     public static void main(String args[]) {
-        Properties importedProperties = new Properties();
+        Properties importedProperties =  loadSystem();
 
+        importedProperties.put("phased-shuffledGroup_2_1","56");
+
+        updateSystem(importedProperties);
+
+    }
+
+    protected static Properties loadSystem() {
+        Properties importedProperties;
         File priceFile = new File("products.properties");
 
         if (!priceFile.exists()) {
@@ -34,8 +42,11 @@ public class UpdateDB {
 
             throw new PhasedTestException("Error when loading file " + priceFile.getPath() + ".", e);
         }
+        return importedProperties;
+    }
 
-        importedProperties.put("phased-shuffledGroup_2_1","56");
+    protected static void updateSystem(Properties importedProperties) {
+        File priceFile = new File("products.properties");
 
         try (FileWriter fw = new FileWriter(priceFile)) {
 
@@ -45,6 +56,5 @@ public class UpdateDB {
 
             throw new PhasedTestException("Error when creating file " + priceFile.getPath() + ".", e);
         }
-
     }
 }
