@@ -11,34 +11,26 @@
  */
 package com.my.web.shop;
 
-import com.adobe.campaign.tests.integro.phased.PhasedTest;
-import com.adobe.campaign.tests.integro.phased.PhasedTestManager;
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import com.adobe.campaign.tests.integro.phased.NonInterruptiveEvent;
 
-@PhasedTest(canShuffle = true)
-@Test
-public class TestShoppingBasket {
+import java.util.Properties;
 
-    //The user searches for a product
-    public void step1_searchForProduct(String val) {
-        Product myProduct = ShoppingBasket.searchForProduct(val);
+public class Gremlins extends NonInterruptiveEvent {
+    @Override
+    public boolean startEvent() {
+        System.out.println("Let's delete everyting!!!!!!");
+        ShoppingBasket.importedProperties = new Properties();
 
-        PhasedTestManager.produce("productPrice",Integer.toString(myProduct.price));
-
+        return true;
     }
 
-    //The user adds it to the shopping basket
-    public void step2_addToShoppingBasket(String val) {
-        ShoppingBasket.addToShoppingBasket(val);
+    @Override
+    public boolean isFinished() {
+        return true;
     }
 
-    //The user pays for the product
-    public void step3_payForProduct(String val) {
-        int searchedPrice = Integer.parseInt(PhasedTestManager.consume("productPrice"));
-        int paidPrice = ShoppingBasket.payForProduct(val);
-        Assert.assertTrue(paidPrice != 13,"our price should not be the default price");
-        Assert.assertEquals(paidPrice,searchedPrice,"We should have the same price as before");
+    @Override
+    public boolean waitTillFinished() {
+        return true;
     }
-
 }
