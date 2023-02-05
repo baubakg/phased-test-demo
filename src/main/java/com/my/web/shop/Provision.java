@@ -26,6 +26,9 @@ public class Provision {
         importedProperties.put("phased-shuffledGroup_2_1", "52");
         importedProperties.put("phased-shuffledGroup_1_2", "47");
         importedProperties.put("phased-shuffledGroup_0_3", "93");
+        importedProperties.put("phased-phased-shuffledGroupNIE_1", "76");
+        importedProperties.put("phased-phased-shuffledGroupNIE_2", "52");
+        importedProperties.put("phased-phased-shuffledGroupNIE_3", "47");
 
         UpdateDB.updateSystem(importedProperties);
     }

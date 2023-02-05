@@ -25,7 +25,7 @@ public class TestRollOut {
      * We load the prices onto the system
      */
     @BeforeTest
-    @BeforePhase
+    @BeforePhase(appliesToPhases = { Phases.ASYNCHRONOUS, Phases.CONSUMER, Phases.PRODUCER})
     public void loadDB() {
         ShoppingBasket.loadSystem();
     }

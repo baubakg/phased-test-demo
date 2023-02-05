@@ -74,3 +74,12 @@ Expected outcome : Fail. We should get an error :
 java.lang.AssertionError: We should have the same price as before expected [52] but found [56] [Failed at step : phased-shuffledGroup_2_1_step3_payForProduct - CONSUMER]
 ```
 
+## Non-Interruptive Events
+We now have incorporated non-interruptive tests in the phased testing framework. This means that based on the execution mode, an event will be executed in parallel to a specific test.
+
+In our demo, we have introduced a Gremlin who simply deletes the data.
+
+| Nr. | Action                          | Command                                                                                                     |
+|-----|---------------------------------|-------------------------------------------------------------------------------------------------------------|
+| 1   | Provision system                | `bash provisionSystem.sh`                                                                                   |
+| 2   | Run tests in ASYNCHROUNOUS mode | `mvn clean test -DPHASED.TESTS.PHASE=ASYNCHRONOUS -DPHASED.EVENTS.NONINTERRUPTIVE=com.my.web.shop.Gremlins` |

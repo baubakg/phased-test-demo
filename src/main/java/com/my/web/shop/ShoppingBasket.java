@@ -11,16 +11,10 @@
  */
 package com.my.web.shop;
 
-import com.adobe.campaign.tests.integro.phased.PhasedTestException;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
 
 public class ShoppingBasket {
-    private static Properties importedProperties = new Properties();
+    protected static Properties importedProperties = new Properties();
 
     /**
      * Simply loads the active price database
@@ -28,15 +22,17 @@ public class ShoppingBasket {
     public static void loadSystem() {
         importedProperties = UpdateDB.loadSystem();
     }
+
+    /**
+     * Search for a product from the database
+     * @param val a product name
+     * @return the product
+     */
     public static Product searchForProduct(String val) {
         Product p = new Product();
         p.name = val;
-        if (importedProperties.containsKey(val)) {
-            p.price = Integer.parseInt(importedProperties.getProperty(val));
-        } else {
-            p.price = 13;
-        }
 
+        p.price = fetchPrice(val);
         return p;
     }
 
@@ -49,18 +45,29 @@ public class ShoppingBasket {
 
     /**
      * The user checks out and pays for the product
-     * @param val
-     * @return
+     * @param val a product name
+     * @return a price
      */
     public static int payForProduct(String val) {
         Product p = new Product();
         p.name = val;
-        if (importedProperties.containsKey(val)) {
-            p.price = Integer.parseInt(importedProperties.getProperty(val));
-        } else {
-            p.price = 13;
-        }
 
+        p.price = fetchPrice(val);
         return p.price;
+    }
+
+    /**
+     * Fetches the proce for a product
+     * @param val
+     * @return
+     */
+    public static int fetchPrice(String val) {
+        /*
+        if (importedProperties.isEmpty()) {
+            System.out.println("System empty. Reloading database.");
+            loadSystem();
+        }*/
+
+        return (importedProperties.containsKey(val)) ?  Integer.parseInt(importedProperties.getProperty(val)) : 13;
     }
 }
