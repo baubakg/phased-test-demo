@@ -79,7 +79,9 @@ We now have incorporated non-interruptive tests in the phased testing framework.
 
 In our demo, we have introduced a Gremlin who simply deletes the data.
 
-| Nr. | Action                          | Command                                                                                                     |
-|-----|---------------------------------|-------------------------------------------------------------------------------------------------------------|
-| 1   | Provision system                | `bash provisionSystem.sh`                                                                                   |
-| 2   | Run tests in ASYNCHROUNOUS mode | `mvn clean test -DPHASED.TESTS.PHASE=ASYNCHRONOUS -DPHASED.EVENTS.NONINTERRUPTIVE=com.my.web.shop.Gremlins` |
+| Nr. | Action                             | Command                                                                                                      |
+|-----|------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| 1   | Provision system                   | `bash provisionSystem.sh`                                                                                    |
+| 2   | Run tests in ASYNCHROUNOUS mode    | `mvn clean test -DPHASED.TESTS.PHASE=ASYNCHRONOUS -DPHASED.EVENTS.NONINTERRUPTIVE=com.my.web.shop.Gremlins`  |
+| 3   | uncomment fix code                 | `Uncomment the lines 65-69  in com.my.web.shop.ShoppingBasket.fetchPrice(String)`                            |
+| 4   | Re-Run tests in ASYNCHROUNOUS mode | `mvn clean test -DPHASED.TESTS.PHASE=ASYNCHRONOUS -DPHASED.EVENTS.NONINTERRUPTIVE=com.my.web.shop.Gremlins`  |
