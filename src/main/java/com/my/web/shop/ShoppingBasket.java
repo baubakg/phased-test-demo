@@ -62,11 +62,6 @@ public class ShoppingBasket {
      * @return
      */
     public static int fetchPrice(String val) {
-        /*
-        if (importedProperties.isEmpty()) {
-            System.out.println("System empty. Reloading database.");
-            loadSystem();
-        }*/
 
         return (importedProperties.containsKey(val)) ?  Integer.parseInt(importedProperties.getProperty(val)) : -1;
     }
