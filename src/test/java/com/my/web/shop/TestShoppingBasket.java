@@ -37,7 +37,7 @@ public class TestShoppingBasket {
     public void step3_payForProduct(String val) {
         int searchedPrice = Integer.parseInt(PhasedTestManager.consume("productPrice"));
         int paidPrice = ShoppingBasket.payForProduct(val);
-        Assert.assertTrue(paidPrice != 13,"our price should not be the default price");
+        Assert.assertTrue(paidPrice != -1,"our price should not be the default price");
         Assert.assertEquals(paidPrice,searchedPrice,"We should have the same price as before");
     }
 

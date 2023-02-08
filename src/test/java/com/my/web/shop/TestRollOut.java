@@ -36,8 +36,9 @@ public class TestRollOut {
     @BeforeSuite
     @BeforePhase(appliesToPhases = { Phases.NON_PHASED})
     public void resetDB() {
-
-        Provision.resetSystem();
+        System.out.println("Provision system");
+        //Provision.resetSystem();
+        ShoppingBasket.loadSystem();
     }
 
 }

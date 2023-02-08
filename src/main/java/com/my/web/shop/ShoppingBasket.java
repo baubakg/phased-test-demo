@@ -68,6 +68,6 @@ public class ShoppingBasket {
             loadSystem();
         }*/
 
-        return (importedProperties.containsKey(val)) ?  Integer.parseInt(importedProperties.getProperty(val)) : 13;
+        return (importedProperties.containsKey(val)) ?  Integer.parseInt(importedProperties.getProperty(val)) : -1;
     }
 }
