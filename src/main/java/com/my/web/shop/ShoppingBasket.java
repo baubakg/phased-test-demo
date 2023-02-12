@@ -57,12 +57,16 @@ public class ShoppingBasket {
     }
 
     /**
-     * Fetches the proce for a product
+     * Fetches the price for a product
      * @param val
      * @return
      */
     public static int fetchPrice(String val) {
-
+        /*
+        if (importedProperties.isEmpty()) {
+            loadSystem();
+        }
+        */
         return (importedProperties.containsKey(val)) ?  Integer.parseInt(importedProperties.getProperty(val)) : -1;
     }
 }
