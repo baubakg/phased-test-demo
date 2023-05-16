@@ -19,7 +19,7 @@ public class ShoppingBasket {
     /**
      * Simply loads the active price database
      */
-    public static void loadSystem() {
+    public static void loadPriceDB() {
         importedProperties = UpdateDB.loadSystem();
     }
 
@@ -64,7 +64,7 @@ public class ShoppingBasket {
     public static int fetchPrice(String val) {
         /*
         if (importedProperties.isEmpty()) {
-            loadSystem();
+            loadPriceDB();
         }
         */
         return (importedProperties.containsKey(val)) ?  Integer.parseInt(importedProperties.getProperty(val)) : -1;

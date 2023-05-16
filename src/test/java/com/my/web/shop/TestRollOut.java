@@ -12,12 +12,10 @@
 package com.my.web.shop;
 
 import com.adobe.campaign.tests.integro.phased.BeforePhase;
-import com.adobe.campaign.tests.integro.phased.PhasedTest;
 import com.adobe.campaign.tests.integro.phased.Phases;
 import com.adobe.campaign.tests.integro.phased.utils.ConfigValueHandler;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
 public class TestRollOut {
     /**
@@ -27,7 +25,7 @@ public class TestRollOut {
     @BeforePhase(appliesToPhases = { Phases.ASYNCHRONOUS, Phases.CONSUMER, Phases.PRODUCER})
     public void loadDB() {
         ConfigValueHandler.PHASED_TEST_DETECT_ORDER.activate("true");
-        ShoppingBasket.loadSystem();
+        ShoppingBasket.loadPriceDB();
     }
 
     /**
@@ -40,7 +38,7 @@ public class TestRollOut {
         ConfigValueHandler.PHASED_TEST_DETECT_ORDER.activate("true");
 
         //Provision.resetSystem();
-        ShoppingBasket.loadSystem();
+        ShoppingBasket.loadPriceDB();
     }
 
 }
