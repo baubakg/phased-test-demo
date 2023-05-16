@@ -16,12 +16,12 @@ import com.adobe.campaign.tests.integro.phased.PhasedTestManager;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@PhasedTest(canShuffle = true)
+@PhasedTest
 @Test
 public class TestShoppingBasket {
 
     //The user searches for a product
-    public void step1_searchForProduct(String val) {
+    public void searchForProduct(String val) {
         Product myProduct = ShoppingBasket.searchForProduct(val);
 
         PhasedTestManager.produce("productPrice",Integer.toString(myProduct.price));
@@ -29,15 +29,15 @@ public class TestShoppingBasket {
     }
 
     //The user adds it to the shopping basket
-    public void step2_addToShoppingBasket(String val) {
+    public void addToShoppingBasket(String val) {
         ShoppingBasket.addToShoppingBasket(val);
     }
 
     //The user pays for the product
-    public void step3_payForProduct(String val) {
+    public void payForProduct(String val) {
         int searchedPrice = Integer.parseInt(PhasedTestManager.consume("productPrice"));
         int paidPrice = ShoppingBasket.payForProduct(val);
-        Assert.assertTrue(paidPrice != -1,"our price should not be the default price");
+        Assert.assertTrue(paidPrice != -1,"Our price should not be the default price");
         Assert.assertEquals(paidPrice,searchedPrice,"We should have the same price as before");
     }
 

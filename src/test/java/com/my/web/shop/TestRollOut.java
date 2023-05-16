@@ -14,12 +14,11 @@ package com.my.web.shop;
 import com.adobe.campaign.tests.integro.phased.BeforePhase;
 import com.adobe.campaign.tests.integro.phased.PhasedTest;
 import com.adobe.campaign.tests.integro.phased.Phases;
+import com.adobe.campaign.tests.integro.phased.utils.ConfigValueHandler;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-@PhasedTest(canShuffle = true)
-@Test
 public class TestRollOut {
     /**
      * We load the prices onto the system
@@ -27,6 +26,7 @@ public class TestRollOut {
     @BeforeTest
     @BeforePhase(appliesToPhases = { Phases.ASYNCHRONOUS, Phases.CONSUMER, Phases.PRODUCER})
     public void loadDB() {
+        ConfigValueHandler.PHASED_TEST_DETECT_ORDER.activate("true");
         ShoppingBasket.loadSystem();
     }
 
@@ -37,6 +37,8 @@ public class TestRollOut {
     @BeforePhase(appliesToPhases = { Phases.NON_PHASED})
     public void resetDB() {
         System.out.println("Provision system");
+        ConfigValueHandler.PHASED_TEST_DETECT_ORDER.activate("true");
+
         //Provision.resetSystem();
         ShoppingBasket.loadSystem();
     }
