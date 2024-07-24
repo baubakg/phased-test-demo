@@ -37,7 +37,7 @@ public class TestRollOut {
         System.out.println("Provision system");
         ConfigValueHandler.PHASED_TEST_DETECT_ORDER.activate("true");
 
-        //Provision.resetSystem();
+        Provision.resetSystem();
         ShoppingBasket.loadPriceDB();
     }
 
