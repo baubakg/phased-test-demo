@@ -36,8 +36,8 @@
     </developers>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <license.dir>${basedir}</license.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -47,6 +47,7 @@
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.2.5</version>
             <configuration>
                 <suiteXmlFiles>
                     <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
@@ -93,7 +94,7 @@
             <dependency>
                 <groupId>com.adobe.campaign.tests.phased</groupId>
                 <artifactId>phased-testing-testng</artifactId>
-                <version>8.0.0</version>
+                <version>9.11.3-SNAPSHOT</version>
             </dependency>
         </dependencies>
 

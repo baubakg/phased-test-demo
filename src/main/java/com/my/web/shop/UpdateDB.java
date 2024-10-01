@@ -11,7 +11,7 @@
  */
 package com.my.web.shop;
 
-import com.adobe.campaign.tests.integro.phased.PhasedTestException;
+import com.adobe.campaign.tests.integro.phased.exceptions.PhasedTestException;
 
 import java.io.*;
 import java.util.Properties;
