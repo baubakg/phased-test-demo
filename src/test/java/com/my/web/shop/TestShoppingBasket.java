@@ -11,14 +11,14 @@
  */
 package com.my.web.shop;
 
-import com.adobe.campaign.tests.integro.phased.PhasedTest;
+import com.adobe.campaign.tests.integro.phased.Mutational;
 import com.adobe.campaign.tests.integro.phased.PhasedTestManager;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@PhasedTest
+
 @Test
-public class TestShoppingBasket {
+public class TestShoppingBasket extends Mutational {
 
     //The user searches for a product
     public void searchForProduct(String val) {

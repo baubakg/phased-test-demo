@@ -22,9 +22,8 @@ public class TestRollOut {
      * We load the prices onto the system
      */
     @BeforeTest
-    @BeforePhase(appliesToPhases = { Phases.ASYNCHRONOUS, Phases.CONSUMER, Phases.PRODUCER})
+    @BeforePhase(appliesToPhases = { Phases.ASYNCHRONOUS, Phases.CONSUMER, Phases.PRODUCER, Phases.PERMUTATIONAL})
     public void loadDB() {
-        ConfigValueHandlerPhased.PHASED_TEST_DETECT_ORDER.activate("true");
         ShoppingBasket.loadPriceDB();
     }
 
@@ -35,7 +34,6 @@ public class TestRollOut {
     @BeforePhase(appliesToPhases = { Phases.NON_PHASED})
     public void resetDB() {
         System.out.println("Provision system");
-        ConfigValueHandlerPhased.PHASED_TEST_DETECT_ORDER.activate("true");
 
         //Provision.resetSystem();
         ShoppingBasket.loadPriceDB();
