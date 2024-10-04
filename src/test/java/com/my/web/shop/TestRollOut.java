@@ -35,7 +35,7 @@ public class TestRollOut {
     public void resetDB() {
         System.out.println("Provision system");
 
-        //Provision.resetSystem();
+        Provision.resetSystem();
         ShoppingBasket.loadPriceDB();
     }
 
