@@ -21,6 +21,11 @@ public class Provision {
 
     protected static void resetSystem() {
         Properties importedProperties = new Properties();
+        importedProperties.put("phased-shuffledGroup_4_0", "113");
+        importedProperties.put("phased-shuffledGroup_1_3", "119");
+        importedProperties.put("phased-shuffledGroup_2_2", "137");
+        importedProperties.put("phased-shuffledGroup_3_1", "71");
+        importedProperties.put("phased-shuffledGroup_0_4", "101");
 
         importedProperties.put("phased-shuffledGroup_3_0", "76");
         importedProperties.put("phased-shuffledGroup_2_1", "52");

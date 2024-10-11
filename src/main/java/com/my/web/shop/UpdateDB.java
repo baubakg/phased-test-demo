@@ -21,6 +21,7 @@ public class UpdateDB {
         Properties importedProperties =  loadSystem();
 
         importedProperties.put("phased-shuffledGroup_2_1","56");
+        importedProperties.put("phased-shuffledGroup_3_1","56");
 
         updateSystem(importedProperties);
 

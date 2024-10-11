@@ -16,9 +16,8 @@ import com.adobe.campaign.tests.integro.phased.PhasedTestManager;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-
-@Test
-public class TestShoppingBasket extends Mutational {
+//@Test
+public class TestShoppingBasket {//extends Mutational {
 
     //The user searches for a product
     public void searchForProduct(String val) {

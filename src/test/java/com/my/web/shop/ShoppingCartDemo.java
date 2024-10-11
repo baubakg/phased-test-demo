@@ -17,6 +17,7 @@ import org.testng.annotations.Test;
 public class ShoppingCartDemo extends Mutational {
     public void loginToSite(String val) {
         PhasedTestManager.produce("authToken","123456");
+        System.out.println("ShoppingCartDemo.loginToSite "+val);
     }
 
     public void searchProduct(String val) {
@@ -24,19 +25,23 @@ public class ShoppingCartDemo extends Mutational {
 
         PhasedTestManager.produce("product",val);
         PhasedTestManager.produce("productPrice",Integer.toString(myProduct.price));
+        System.out.println("ShoppingCartDemo.searchProduct "+val+ "  price is "+myProduct.price);
+
     }
 
     public void addProductToCart(String val) {
         String productId = PhasedTestManager.consume("product");
+        System.out.println("ShoppingCartDemo.addProductToCart "+val);
 
         ShoppingBasket.addToShoppingBasket(productId);
-        PhasedTestManager.produce("cart","cart1");
+        PhasedTestManager.produce("cart","cart"+val);
     }
 
     public void checkout(String val) {
         PhasedTestManager.consume("authToken");
         PhasedTestManager.consume("cart");
         String productId = PhasedTestManager.consume("product");
+        System.out.println("ShoppingCartDemo.checkout "+val);
 
         int searchedPrice = Integer.parseInt(PhasedTestManager.consume("productPrice"));
         int paidPrice = ShoppingBasket.payForProduct(productId);
