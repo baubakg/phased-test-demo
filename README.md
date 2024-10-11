@@ -8,7 +8,7 @@ Word of note: _This is a simple demo example, and is not a real web shop. The ex
 ## Basic scenario
 We assume that we have a simple web shop. The user will find a product, put it in their basket, and then checkout. Finally we make sure that the paid price is the same as what we browsed for.
 
-The test scenario is declared in the class `com.my.web.shop.TestShoppingBasket`.
+The test scenario is declared in the class `com.my.web.shop.ShoppingCartDemo`.
 
 ## Demo Executions
 In this chapter we will describe the use cases:
@@ -85,3 +85,16 @@ In our demo, we have introduced a Gremlin who simply deletes the data.
 | 2   | Run tests in ASYNCHROUNOUS mode    | `mvn clean test -DPHASED.TESTS.PHASE=ASYNCHRONOUS -DPHASED.EVENTS.NONINTERRUPTIVE=com.my.web.shop.Gremlins`  |
 | 3   | uncomment fix code                 | `Uncomment the lines 65-69  in com.my.web.shop.ShoppingBasket.fetchPrice(String)`                            |
 | 4   | Re-Run tests in ASYNCHROUNOUS mode | `mvn clean test -DPHASED.TESTS.PHASE=ASYNCHRONOUS -DPHASED.EVENTS.NONINTERRUPTIVE=com.my.web.shop.Gremlins`  |
+
+
+## PERMUTATIONAL
+We will now run the scenarios with all the possible permutations:
+
+To get this started :
+
+| Nr. | Action                             | Command                                                                                                      |
+|-----|------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| 1   | Provision system                   | `bash provisionSystem.sh`                                                                                    |
+| 2   | Run tests in PERMUTATIONAL mode    | `mvn clean test -DPHASED.TESTS.PHASE=PERMUTATIONAL`  |
+
+Wen running this you will get 3 different permutations that are executed for the `ShoppingCartDemo` scenario.

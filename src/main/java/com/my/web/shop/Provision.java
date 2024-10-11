@@ -20,6 +20,7 @@ public class Provision {
     }
 
     protected static void resetSystem() {
+        System.out.println("RESETTING!!");
         Properties importedProperties = new Properties();
         importedProperties.put("phased-shuffledGroup_4_0", "113");
         importedProperties.put("phased-shuffledGroup_1_3", "119");
@@ -35,6 +36,10 @@ public class Provision {
         importedProperties.put("phased-shuffledGroupNIE_2", "52");
         importedProperties.put("phased-shuffledGroupNIE_3", "47");
         importedProperties.put("phased-default", "44");
+
+        importedProperties.put("PERMUTATIONAL_lestatct_1-3","7");
+        importedProperties.put("PERMUTATIONAL_stleatct_3-3","11");
+        importedProperties.put("PERMUTATIONAL_statlect_2-3","13");
 
         UpdateDB.updateSystem(importedProperties);
     }
