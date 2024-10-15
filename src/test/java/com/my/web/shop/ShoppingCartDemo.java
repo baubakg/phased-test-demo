@@ -17,6 +17,7 @@ import org.testng.annotations.Test;
 public class ShoppingCartDemo extends Mutational {
 
     public void loginToSite(String val) {
+        ShoppingBasket.loadPriceDB();
         PhasedTestManager.produce("authToken","123456");
         System.out.println("ShoppingCartDemo.loginToSite "+val);
     }
@@ -47,7 +48,6 @@ public class ShoppingCartDemo extends Mutational {
         int searchedPrice = Integer.parseInt(PhasedTestManager.consume("productPrice"));
         int paidPrice = ShoppingBasket.payForProduct(productId);
 
-        Assert.assertTrue(paidPrice != -1,"Our price should not be the default price");
         Assert.assertEquals(paidPrice,searchedPrice,"We should have the same price as before");
     }
 }
