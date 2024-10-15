@@ -35,6 +35,7 @@ public class Provision {
         importedProperties.put("phased-shuffledGroupNIE_1", "76");
         importedProperties.put("phased-shuffledGroupNIE_2", "52");
         importedProperties.put("phased-shuffledGroupNIE_3", "47");
+        importedProperties.put("phased-shuffledGroupNIE_4", "47");
         importedProperties.put("phased-default", "44");
 
         importedProperties.put("PERMUTATIONAL_lestatct_1-3","7");

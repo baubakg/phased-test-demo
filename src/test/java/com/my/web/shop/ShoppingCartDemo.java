@@ -15,6 +15,7 @@ import org.testng.annotations.Test;
 
 @Test
 public class ShoppingCartDemo extends Mutational {
+
     public void loginToSite(String val) {
         PhasedTestManager.produce("authToken","123456");
         System.out.println("ShoppingCartDemo.loginToSite "+val);
